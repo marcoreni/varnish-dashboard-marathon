@@ -26,8 +26,10 @@ RUN rm -rf /var/www/html/* && \
  
 RUN service nginx start
 
-EXPOSE 80 #Nginx Port
-EXPOSE 8000 #Goji Port
+#Nginx Port
+EXPOSE 80 
+#Goji Port
+EXPOSE 8000 
 
 COPY ./assets/start.sh /start.sh
 
