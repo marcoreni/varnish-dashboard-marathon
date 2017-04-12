@@ -1,0 +1,25 @@
+var config = {
+	servers: [
+	{{ range $index, $service := . }}{{ range $i, $task := $service.Tasks }}
+		{{ if $i }}, {{end}} {
+			name: "{{ $task.Name }}",
+			host: "{{ $task.Host }}",
+			port: "{{ $service.Port }}",
+			user: "{{ .Env.VARNISH_AGENT_USERNAME }}",
+			password: "{{ .Env.VARNISH_AGENT_PASSWORD }}"
+		}
+	{{end}}{{end}}
+	],
+	groups: [],
+	update_freq: 2000,
+	max_points: 100,
+	default_log_fetch: 1000,
+	default_log_display: 10,
+	show_bans_page: true,
+	show_manage_server_page: true,
+	show_vcl_page: true,
+	show_stats_page: true,
+	show_params_page: true,
+	show_logs_page: true,
+	show_restart_varnish_btn: false
+}
