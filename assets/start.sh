@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Get the Environment variables and save them in the variable envs
 envs=`printenv`
 
@@ -11,4 +13,6 @@ do
   sed -i "s|\${${name}}|${value}|g" /conf/goji.conf
 done
 
-./goji -conf /conf/goji.conf -server
+service nginx start
+
+watch -n30 /goji/bin/goji -conf /conf/goji.conf

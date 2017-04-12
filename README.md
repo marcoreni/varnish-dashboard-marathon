@@ -11,5 +11,7 @@ You can customize the following ENV parameters:
 * VARNISH_APP_ID /varnish
 * VARNISH_PORT_PROTOCOL http
 * VARNISH_PORT 6081
+* VARNISH_AGENT_USERNAME varnish
+* VARNISH_AGENT_PASSWORD password
 
 It exposes port 80 to show the dashboard
