@@ -1,10 +1,12 @@
 var port = document.location.port ? document.location.port : "80";
+var pathname = window.location.pathname;
+var path = pathname.substring(0, pathname.lastIndexOf('/') + 1);
 var config = {
 	servers: [
 	{{ range $index, $service := . }}{{ range $i, $task := $service.Tasks }}{{ range $j, $ip := $task.IpAddresses }}
 		{{ if $i }}, {{end}} {
 			name: "{{ $task.Id }}",
-			port: port + "/{{ $ip.IpAddress }}",
+			port: port + path + "{{ $ip.IpAddress }}",
 			user: "{{ getenv "VARNISH_AGENT_USERNAME" }}",
 			password: "{{ getenv "VARNISH_AGENT_PASSWORD" }}"
 		}
