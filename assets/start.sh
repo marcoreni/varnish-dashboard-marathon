@@ -13,6 +13,6 @@ do
   sed -i "s|\${${name}}|${value}|g" /conf/goji.conf
 done
 
-service nginx start
+nginx
 
 watch -n30 /goji/bin/goji -conf /conf/goji.conf

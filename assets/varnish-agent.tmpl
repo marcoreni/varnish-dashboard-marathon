@@ -1,14 +1,14 @@
+var port = document.location.port ? document.location.port : "80";
 var config = {
 	servers: [
-	{{ range $index, $service := . }}{{ range $i, $task := $service.Tasks }}
+	{{ range $index, $service := . }}{{ range $i, $task := $service.Tasks }}{{ range $j, $ip := $task.IpAddresses }}
 		{{ if $i }}, {{end}} {
-			name: "{{ $task.Name }}",
-			host: "{{ $task.Host }}",
-			port: "{{ $service.Port }}",
-			user: "{{ .Env.VARNISH_AGENT_USERNAME }}",
-			password: "{{ .Env.VARNISH_AGENT_PASSWORD }}"
+			name: "{{ $task.Id }}",
+			port: port + "/{{ $ip.IpAddress }}",
+			user: "{{ getenv "VARNISH_AGENT_USERNAME" }}",
+			password: "{{ getenv "VARNISH_AGENT_PASSWORD" }}"
 		}
-	{{end}}{{end}}
+	{{end}}{{end}}{{end}}
 	],
 	groups: [],
 	update_freq: 2000,
