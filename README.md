@@ -10,7 +10,7 @@ You can customize the following ENV parameters:
 * MARATHON_PORT 8080
 * VARNISH_APP_ID /varnish
 * VARNISH_PORT_PROTOCOL http
-* VARNISH_PORT 6081
+* VARNISH_PORT 6085
 * VARNISH_AGENT_USERNAME varnish
 * VARNISH_AGENT_PASSWORD password
 

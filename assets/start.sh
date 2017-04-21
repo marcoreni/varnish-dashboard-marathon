@@ -15,4 +15,6 @@ done
 
 nginx
 
-watch -n30 /goji/bin/goji -conf /conf/goji.conf
+/goji/bin/goji -conf /conf/goji.conf
+
+while sleep 60; do echo $(date); /goji/bin/goji -conf /conf/goji.conf; done
