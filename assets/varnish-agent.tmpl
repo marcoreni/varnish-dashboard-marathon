@@ -8,7 +8,7 @@ var config = {
 			name: "{{ $task.Id }}",
 			port: port + path + "{{ $ip.IpAddress }}",
 			user: "{{ getenv "VARNISH_AGENT_USERNAME" }}",
-			password: "{{ getenv "VARNISH_AGENT_PASSWORD" }}"
+			pass: "{{ getenv "VARNISH_AGENT_PASSWORD" }}"
 		}
 	{{end}}{{end}}{{end}}
 	],
