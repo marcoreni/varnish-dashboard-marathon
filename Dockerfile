@@ -29,7 +29,7 @@ RUN mkdir -p /goji && \
 
 # Install dashboard
 RUN rm -rf /var/www/html/* && \
-  git clone https://github.com/brandonwamboldt/varnish-dashboard.git /var/www/html/
+  git clone https://github.com/marcoreni/varnish-dashboard.git /var/www/html/
 
 # Cleanup
 RUN apt-get purge -y golang git && apt-get -y autoremove && apt-get -y clean
